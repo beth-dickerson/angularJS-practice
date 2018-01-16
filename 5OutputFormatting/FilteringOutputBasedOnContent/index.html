@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Including Partial Templates</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <style>
+        img{width: 60px; height:50px;} ul{list-style-type: none;}
+    </style>
+
+</head>
+
+<body>
+
+    <div ng-controller="myCtrl">
+        <div style="padding:10px;">
+            <p>Select a food group to filter output</p>
+            <select ng-model="selectedFoodGroup">
+                <option value="fruits">Fruits</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="grains">Grains</option>
+                <option value="dairy">Dairy</option>
+                <option value="meats">Meats</option>
+                <option value="">All</option>
+            </select>
+        </div>
+
+      <div>
+          <!-- specify filter with '.group' to narrow search result -->
+          <ul ng-repeat="food in foodList | filter:selectedFoodGroup.group">
+              <li>
+                  <div>
+                      <img ng-src="{{food.url}}" />
+                      <div style="display: inline">
+                          <h3 style="display: inline">{{food.name}}</h3>
+                          <p style="display: inline">Group: {{food.group}}</p>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </div>
+
+</body>
+
+</html>

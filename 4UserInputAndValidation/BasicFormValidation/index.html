@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <title>Including Partial Templates</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+    <style>
+        input.ng-dirty.ng-valid {
+            background-color: #3a7d34;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div ng-controller="myCtrl">
+       <h3>Fill out your contact information below:</h3>
+
+       <form name="myTestForm" novalidate >
+           Enter your first name: <input ng-model='model.firstName' required/><br />
+           Enter your last name: <input ng-model='model.lastName' required/><br />
+           Enter your contact number: <input ng-model='model.contact' required ng-minlength="4"/><br />
+           Enter your contact email: <input ng-model='model.email' required type='email'/><br />
+           Enter your postal code: <input ng-model='model.postalCode' required ng-pattern="/[A-Z]\d[A_Z] \d[A_Z]\d/"/><br />
+
+           <button ng-click='submitForm(myTestForm)'>Submit</button>
+       </form>
+
+       <div style="margin-top:20px;">{{model}}</div>
+    </div>
+
+</body>
+
+</html>

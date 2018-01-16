@@ -1,0 +1,22 @@
+body {
+    background: #efefef;
+}
+
+.ng-scope {
+    color: red;
+}
+
+/* This has to do with data values */
+.ng-binding {
+    color: blue;
+}
+
+/* This has to do with user input that has not been interacted with yet */
+.ng-pristine {
+    background-color: aqua;
+}
+
+/* This has to do with user input after a user interaction */
+.ng-dirty {
+    background-color: blue;
+}
